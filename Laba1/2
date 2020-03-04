@@ -1,0 +1,50 @@
+#coding:utf-8
+groupmates = [
+ {
+ "name": u"Василий",
+ "group": "912-2",
+ "age": "19",
+ "marks": [4, 3, 5, 5, 4]
+ },
+ {
+ "name": u"Анна",
+ "group": "912-1",
+ "age": "18",
+ "marks": [3, 2, 3, 4, 3]
+ },
+ {
+ "name": u"Георгий",
+ "group": "912-2",
+ "age": "19",
+ "marks": [3, 5, 4, 3, 5]
+ },
+ {
+ "name": u"Валентина",
+ "group": "912-1",
+ "age": "18",
+ "marks": [5, 5, 5, 4, 5]
+ }
+]  
+sredball=input("Введите Средний балл студентов ")
+spisok=[]
+def sort(students):#Функция сортировки по среднему баллу 
+    for student in students:
+        sr=float(sum((student["marks"]))/len((student["marks"])))
+        if (sr >= float(sredball)):
+            spisok.append(student)
+            #Конец функции
+sort(groupmates)#Выполнение функции
+
+def print_students(students):#Функция вывода списка студентов
+    #Вывод "Шапки"
+    print    (u"Имя студента ".ljust(15), \
+             u"Группа ".ljust(8), \
+             u"Возраст ".ljust(8), \
+             u"Оценки ".ljust(20))
+    for student in students:    #Цикл с перебором студентов и выводом их данных
+        print (student["name"] .ljust(15), \
+              student["group"] .ljust(8), \
+              str(student["age"]) .ljust(8), \
+              str(student["marks"]) .ljust(20))
+    print ("\n")
+print_students(spisok)#Вызов функции.Выводится список отсортированных студентов
